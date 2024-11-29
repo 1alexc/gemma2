@@ -1,0 +1,9 @@
+Benefits ChatBot
+
+My plan is to create a chatbot that users can interact with to ask questions about the UK Governments benefit system. 
+
+I plan to use the Google Gemma 2 model as the LLM I use for the prompts and outputs, with a frontend user interface that emulates the styling of the UK Govs website, while following their accessibility guidelines. The user will be able to type questions they want to know about benefits (applications, eligibility etc) and then the output will be displayed on the screen (potentially with a citation link), similar to popular LLM sites.
+
+I want to implement RAG by using PDFs downloaded from the UK Gov website regarding Universal Credit and PIP. These will be the knowledge source that the Gemma 2 model draws from, to provide accuracy to answers provided to users. I want to reduce the probability of hallucinations and potentially wrong answers to user questions by using a specific system prompt, so if the Gemma Model cannot find the information within the PDFs, it responds with a message to the user that it cannot answer accurately.
+
+I plan to use Weaviate to create the vector embedded system used for RAG. I want the Gemma 2 model to use this vectorised data as it's first and only point of reference for answering questions that the user asks (for example: I'm a single mother of two, which benefits am I eligible for?). I want the frontend user interface to be created on Next.js, and when the user types in the information and clicks the prompt send button or presses enter on the keyboard, the query is sent to Gemma 2 model, which then queries the RAG information for the government PDFs. It will then show the text answer to the user.
